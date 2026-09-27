@@ -1,0 +1,349 @@
+https://github.com/HaiNV18/vibe_viethai
+https://kfc-landingpage-2.nvhai061993.workers.dev/
+
+
+
+======
+Google Cloud Console
+
+Bước 1: tạo project
+Bước 2: add service YouTube Data V3 -> project được phép sử dụng API của YouTube
+Bước 3: tạo API key
+
+
+https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=UC-lHJZR3Gqxm24_Vd_AJ5Yw&key=API_KEY
+
+
+
+
+
+
+
+Hãy tạo cho tôi một trang Landing Page đơn giản bằng HTML, CSS (dùng Bootstrap qua CDN) và JavaScript. Trang web bao gồm các phần:
+
+Chủ đề: trang Vietjet bán vé máy bay (tour, vé, hãng bay...)
+
+Header/Navbar: Logo tên thương hiệu Vietjet và menu chuyển hướng đơn giản. Logo nằm trong folder images
+
+Hero Section: Tiêu đề, đoạn mô tả ngắn và 1 nút kêu gọi hành động (Call to Action - CTA). Sử dụng hình ảnh máy bay của Vietjet trong folder images. Hình ảnh nên nằm bên phải.
+
+Features Section: Hiển thị danh sách các chuyến bay
+Ví dụ: TPHCM - Hà Nội (một chiều): 4000000 VND
+
+
+Footer: Thông tin bản quyền và liên hệ.
+Hãy lưu mã nguồn chính vào tệp index.html.
+
+Giao diện: màu chủ đạo là trắng (#f2f2f2) và đỏ (#ee1d23). Chỉ render ra file HTML CSS JavaScript, không dùng bất kỳ ngôn ngữ backend nào.
+
+
+=======================
+ChatGPT Free đề xuất:
+
+Hãy xây dựng cho tôi một Landing Page bán vé máy bay theo phong cách hiện đại, chuyên nghiệp, lấy cảm hứng từ thương hiệu Vietjet.
+
+### 1. Công nghệ
+
+Chỉ sử dụng:
+
+* HTML5
+* CSS3
+* JavaScript thuần
+* Bootstrap 5 thông qua CDN
+
+Không sử dụng:
+
+* React
+* Vue
+* Angular
+* Tailwind CSS
+* Node.js
+* PHP
+* Python
+* Database
+* Bất kỳ backend nào
+
+Website phải chạy trực tiếp bằng cách mở file `index.html`.
+
+### 2. Cấu trúc project
+
+Hãy tổ chức project như sau:
+
+```text
+/
+├── index.html
+├── style.css
+├── script.js
+└── images/
+    ├── logo...
+    └── ...
+```
+
+Hãy kiểm tra folder `images/` trước khi xây dựng giao diện và ưu tiên sử dụng các hình ảnh có sẵn trong folder này.
+
+Không tự ý sử dụng ảnh từ các URL bên ngoài nếu trong folder `images/` đã có hình ảnh phù hợp.
+
+### 3. Chủ đề
+
+Chủ đề của website là landing page bán vé máy bay Vietjet.
+
+Đây là giao diện demo/mockup, không phải website chính thức của Vietjet.
+
+Phong cách:
+
+* Hiện đại
+* Sạch sẽ
+* Tối giản
+* Dễ sử dụng
+* Có cảm giác giống một website đặt vé máy bay thực tế
+* Responsive tốt trên desktop, tablet và mobile
+
+### 4. Màu sắc
+
+Màu chủ đạo:
+
+* Đỏ: `#ee1d23`
+* Trắng/xám rất nhạt: `#f2f2f2`
+
+Có thể sử dụng thêm các màu trung tính như:
+
+* `#ffffff`
+* `#333333`
+* `#666666`
+* `#dddddd`
+
+Không sử dụng quá nhiều màu khác làm mất nhận diện chính.
+
+### 5. Header / Navbar
+
+Tạo navbar ở đầu trang.
+
+Bao gồm:
+
+* Logo Vietjet ở bên trái
+* Menu:
+
+  * Trang chủ
+  * Chuyến bay
+  * Khuyến mãi
+  * Liên hệ
+* Một nút CTA nổi bật như `Đặt vé`
+
+Navbar phải responsive.
+
+Trên mobile, menu chuyển thành hamburger menu bằng Bootstrap.
+
+Logo phải lấy từ folder `images/`.
+
+### 6. Hero Section
+
+Tạo một Hero Section lớn ngay bên dưới Navbar.
+
+Bố cục desktop chia thành 2 cột:
+
+**Bên trái:**
+
+* Heading lớn, ví dụ:
+  `Bay thỏa thích - Khám phá thế giới`
+* Một đoạn mô tả ngắn về việc đặt vé máy bay.
+* Nút CTA màu đỏ:
+  `Đặt vé ngay`
+
+**Bên phải:**
+
+* Hiển thị hình ảnh máy bay Vietjet từ folder `images/`.
+* Hình ảnh có kích thước phù hợp, không bị méo.
+* Có thể sử dụng border-radius và một số hiệu ứng nhẹ để giao diện đẹp hơn.
+
+Trên mobile, hai phần phải tự động chuyển thành layout 1 cột.
+
+### 7. Flight Search / Booking Box
+
+Ngay trong hoặc bên dưới Hero Section, tạo một booking/search box nổi bật.
+
+Bao gồm các trường:
+
+* Điểm đi
+* Điểm đến
+* Ngày đi
+* Ngày về
+* Số hành khách
+* Nút `Tìm chuyến bay`
+
+Thiết kế dạng card có nền trắng, border-radius và box-shadow nhẹ.
+
+JavaScript chỉ cần mô phỏng chức năng tìm kiếm phía frontend.
+
+Khi người dùng bấm `Tìm chuyến bay`, hiển thị danh sách các chuyến bay phù hợp từ dữ liệu mẫu.
+
+Không cần kết nối API hoặc backend.
+
+### 8. Flight Section
+
+Tạo section `Các chuyến bay phổ biến`.
+
+Hiển thị các chuyến bay dưới dạng Bootstrap Cards.
+
+Dữ liệu mẫu:
+
+1. TP.HCM → Hà Nội
+
+   * Một chiều
+   * Từ 4.000.000 VND
+
+2. TP.HCM → Đà Nẵng
+
+   * Một chiều
+   * Từ 1.500.000 VND
+
+3. Hà Nội → TP.HCM
+
+   * Một chiều
+   * Từ 3.500.000 VND
+
+4. TP.HCM → Phú Quốc
+
+   * Một chiều
+   * Từ 1.800.000 VND
+
+5. Hà Nội → Đà Nẵng
+
+   * Một chiều
+   * Từ 1.700.000 VND
+
+Mỗi card nên có:
+
+* Tuyến bay
+* Loại chuyến bay
+* Giá
+* Một nút `Đặt vé`
+
+Khi click `Đặt vé`, sử dụng JavaScript để hiển thị thông báo hoặc modal Bootstrap thông báo rằng đây là chức năng demo.
+
+### 9. Features / Benefits Section
+
+Tạo thêm một section giới thiệu các ưu điểm:
+
+* ✈️ Nhiều điểm đến
+* 💰 Giá vé hấp dẫn
+* ⚡ Đặt vé nhanh chóng
+* 📱 Hỗ trợ trên mọi thiết bị
+
+Mỗi feature có icon phù hợp.
+
+Có thể sử dụng Bootstrap Icons thông qua CDN.
+
+### 10. Footer
+
+Footer có nền đỏ hoặc màu tối phù hợp.
+
+Bao gồm:
+
+* Logo / tên thương hiệu Vietjet
+* Thông tin bản quyền
+* Email liên hệ
+* Số điện thoại mẫu
+* Các liên kết:
+
+  * Điều khoản
+  * Chính sách bảo mật
+  * Liên hệ
+
+Thêm dòng:
+
+`© 2026 Vietjet Demo Landing Page. All rights reserved.`
+
+### 11. JavaScript
+
+Sử dụng JavaScript thuần để tạo một số tương tác:
+
+* Navbar mobile
+* Search/filter danh sách chuyến bay
+* Nút `Tìm chuyến bay`
+* Nút `Đặt vé`
+* Hiển thị Bootstrap Modal hoặc thông báo khi người dùng đặt vé
+* Validate các input cơ bản
+
+Không cần backend.
+
+### 12. Responsive
+
+Website phải responsive hoàn toàn.
+
+Kiểm tra tối thiểu trên:
+
+* Desktop: 1440px
+* Laptop: 1024px
+* Tablet: 768px
+* Mobile: 375px
+
+Đặc biệt đảm bảo:
+
+* Navbar không bị tràn
+* Hero không bị vỡ layout
+* Hình máy bay không bị méo
+* Flight cards hiển thị đẹp trên mobile
+* Booking form chuyển từ nhiều cột thành một cột trên màn hình nhỏ
+* Không xuất hiện horizontal scrollbar
+
+### 13. UI/UX
+
+Ưu tiên:
+
+* Khoảng trắng hợp lý
+* Typography rõ ràng
+* Border-radius hiện đại
+* Box-shadow nhẹ
+* Hover effect cho button/card
+* Transition mượt nhưng không quá nhiều animation
+* CTA màu đỏ nổi bật
+* Giá vé được làm nổi bật
+* Không thiết kế quá rối mắt
+
+### 14. Code quality
+
+Code phải:
+
+* Có semantic HTML5
+* Dễ đọc
+* Có comment ở những phần quan trọng
+* Không viết code dư thừa
+* Tách CSS vào `style.css`
+* Tách JavaScript vào `script.js`
+* Sử dụng Bootstrap đúng cách
+* Không dùng inline style nếu không cần thiết
+* Không sử dụng backend
+
+### 15. Yêu cầu cuối cùng
+
+Sau khi hoàn thành:
+
+1. Kiểm tra tất cả đường dẫn tới CSS, JavaScript và hình ảnh.
+2. Kiểm tra console để đảm bảo không có lỗi JavaScript.
+3. Kiểm tra responsive.
+4. Đảm bảo mở trực tiếp `index.html` vẫn hoạt động.
+5. Nếu phát hiện lỗi, tự sửa trước khi hoàn thành.
+
+Hãy ưu tiên tạo ra giao diện hoàn chỉnh, đẹp và có tính thực tế thay vì chỉ tạo một HTML đơn giản.
+
+====================
+Claude Free đề xuất
+
+Hãy tạo cho tôi một trang Landing Page đơn giản, responsive tốt trên mobile, dùng HTML, CSS (Bootstrap 5 qua CDN) và JavaScript thuần (chỉ dùng cho hiệu ứng smooth scroll, không cần backend).
+
+Chủ đề: Trang bán vé máy bay/tour của hãng Vietjet.
+
+Header/Navbar: Logo chữ "Vietjet" (dùng text kèm icon máy bay hoặc ảnh placeholder tại images/logo.png), menu gồm: Trang chủ, Vé máy bay, Tour, Khuyến mãi, Liên hệ.
+
+Hero Section: Tiêu đề lớn, đoạn mô tả ngắn 2-3 câu, nút CTA "Đặt vé ngay" (bấm vào sẽ scroll mượt xuống phần Features). Ảnh máy bay Vietjet đặt bên phải (dùng ảnh placeholder từ Unsplash hoặc để trống src="images/hero-plane.png" để tôi tự thay).
+
+Features Section: Hiển thị dạng card 4-6 chuyến bay phổ biến, mỗi card gồm: tuyến bay, loại vé (một chiều/khứ hồi), giá (định dạng có dấu chấm phân cách, vd: 4.000.000 VNĐ), nút "Chọn vé".
+Ví dụ: TPHCM - Hà Nội (một chiều): 4.000.000 VNĐ
+
+Footer: Copyright "© 2026 Vietjet Air", thông tin liên hệ (hotline, email giả định), vài icon mạng xã hội.
+
+Giao diện: màu chủ đạo trắng (
+#f2f2f2) và đỏ (
+#ee1d23), font hiện đại, spacing thoáng.
+
+Chỉ trả về 1 file index.html duy nhất (CSS và JS nhúng trực tiếp trong file), không dùng bất kỳ ngôn ngữ backend nào.

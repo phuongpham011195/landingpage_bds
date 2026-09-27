@@ -2,6 +2,7 @@ https://github.com/HaiNV18/vibe_viethai
 https://kfc-landingpage-2.nvhai061993.workers.dev/
 
 
+Test dòng này.
 
 ======
 Google Cloud Console

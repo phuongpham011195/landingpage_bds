@@ -4,6 +4,9 @@ https://kfc-landingpage-2.nvhai061993.workers.dev/
 
 Test dòng này.
 
+Đây là Task 2
+Đây là Task 2
+Đây là Task 2
 ======
 Google Cloud Console
 

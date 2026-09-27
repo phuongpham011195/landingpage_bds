@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vietjet Air - Bay khắp chốn, đón niềm vui. Đặt vé máy bay giá tốt, nhanh chóng và tiện lợi.">
+  <title>Vietjet Air - Bay khắp chốn, đón niềm vui</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    :root {
+      --vj-red: #ee1d23;
+      --vj-red-hover: #d6141a;
+      --vj-yellow: #ffc20e;
+      --vj-yellow-hover: #e5ad0a;
+      --vj-bg: #f2f2f2;
+      --vj-text: #212529;
+      --vj-gray: #6c757d;
+      --vj-card-border: #e9ecef;
+      --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family-base);
+      background-color: var(--vj-bg);
+      color: var(--vj-text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      background-color: #212529;
+      color: #ced4da;
+      font-size: 0.85rem;
+      padding: 6px 0;
+    }
+    .top-bar a {
+      color: #ced4da;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .top-bar a:hover {
+      color: var(--vj-yellow);
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #ffffff;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+      padding: 0.65rem 0;
+      transition: all 0.3s ease;
+    }
+    .navbar-brand img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+    .nav-link {
+      font-weight: 600;
+      color: #333333 !important;
+      padding: 0.5rem 1rem !important;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--vj-red) !important;
+      background-color: rgba(238, 29, 35, 0.06);
+    }
+    .btn-vj-primary {
+      background-color: var(--vj-red);
+      color: #ffffff;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      padding: 0.65rem 1.6rem;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 14px rgba(238, 29, 35, 0.35);
+    }
+    .btn-vj-primary:hover {
+      background-color: var(--vj-red-hover);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(238, 29, 35, 0.45);
+    }
+    .btn-vj-outline {
+      background-color: transparent;
+      color: var(--vj-red);
+      border: 2px solid var(--vj-red);
+      font-weight: 700;
+      border-radius: 8px;
+      padding: 0.6rem 1.4rem;
+      transition: all 0.25s ease;
+    }
+    .btn-vj-outline:hover {
+      background-color: var(--vj-red);
+      color: #ffffff;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 4.5rem 0 3.5rem;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #ffffff 0%, var(--vj-bg) 100%);
+    }
+    .hero-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: #1a1a1a;
+      margin-bottom: 1.25rem;
+    }
+    .hero-title .text-vj-red {
+      color: var(--vj-red);
+    }
+    .hero-desc {
+      font-size: 1.125rem;
+      color: #555555;
+      margin-bottom: 2rem;
+      max-width: 540px;
+    }
+    .hero-img-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-plane-img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      object-fit: cover;
+    }
+    .hero-plane-img:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.18);
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: -15px;
+      left: 30px;
+      background: #ffffff;
+      padding: 12px 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-badge-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(238, 29, 35, 0.1);
+      color: var(--vj-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 1.3rem;
+    }
+
+    /* Quick Search Bar */
+    .search-panel {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
+      margin-top: -1.5rem;
+      position: relative;
+      z-index: 10;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .search-panel .form-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--vj-gray);
+      margin-bottom: 0.35rem;
+    }
+    .search-panel .form-control, .search-panel .form-select {
+      border-radius: 8px;
+      padding: 0.65rem 0.9rem;
+      font-weight: 500;
+    }
+    .search-panel .form-control:focus, .search-panel .form-select:focus {
+      border-color: var(--vj-red);
+      box-shadow: 0 0 0 0.25rem rgba(238, 29, 35, 0.15);
+    }
+
+    /* Section Headers */
+    .section-title-wrap {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-subtitle {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--vj-red);
+      margin-bottom: 0.5rem;
+    }
+    .section-main-title {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #1a1a1a;
+    }
+    .section-desc {
+      color: var(--vj-gray);
+      max-width: 600px;
+      margin: 0.5rem auto 0;
+    }
+
+    /* Flight Cards */
+    .flight-card {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid var(--vj-card-border);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .flight-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 32px rgba(238, 29, 35, 0.12);
+      border-color: rgba(238, 29, 35, 0.3);
+    }
+    .flight-card-header {
+      background: linear-gradient(135deg, #fff7f7 0%, #ffffff 100%);
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px dashed var(--vj-card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .flight-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.35rem 0.75rem;
+      border-radius: 50px;
+      background-color: rgba(238, 29, 35, 0.12);
+      color: var(--vj-red);
+    }
+    .flight-badge.promo {
+      background-color: rgba(255, 194, 14, 0.25);
+      color: #b58000;
+    }
+    .flight-card-body {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .route-visual {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+    .route-point {
+      text-align: center;
+      flex: 1;
+    }
+    .route-code {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #1a1a1a;
+      line-height: 1.1;
+    }
+    .route-city {
+      font-size: 0.85rem;
+      color: var(--vj-gray);
+      margin-top: 4px;
+      white-space: nowrap;
+    }
+    .route-path {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 0.5rem;
+    }
+    .route-line {
+      width: 100%;
+      height: 2px;
+      background: repeating-linear-gradient(to right, var(--vj-red) 0, var(--vj-red) 5px, transparent 5px, transparent 9px);
+      position: relative;
+      margin: 8px 0;
+    }
+    .route-plane-icon {
+      color: var(--vj-red);
+      font-size: 1.1rem;
+      animation: pulseFly 2s infinite ease-in-out;
+    }
+    @keyframes pulseFly {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(4px); }
+    }
+    .flight-info-meta {
+      background: var(--vj-bg);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.88rem;
+    }
+    .flight-price-box {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-top: 1rem;
+      border-top: 1px solid var(--vj-card-border);
+    }
+    .price-label {
+      font-size: 0.8rem;
+      color: var(--vj-gray);
+      margin-bottom: 2px;
+    }
+    .price-value {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--vj-red);
+    }
+    .price-unit {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* Promo Banner */
+    .promo-banner {
+      background: linear-gradient(135deg, var(--vj-red) 0%, #c41217 100%);
+      border-radius: 20px;
+      padding: 3rem;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(238, 29, 35, 0.25);
+    }
+    .promo-banner::after {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 250px;
+      height: 250px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+    }
+
+    /* Benefits section */
+    .benefit-icon-box {
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+      background-color: rgba(238, 29, 35, 0.1);
+      color: var(--vj-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--vj-red);
+      color: #ffffff;
+      padding: 3.5rem 0 1.5rem;
+      margin-top: 4rem;
+    }
+    footer h5 {
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    footer h5::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 36px;
+      height: 3px;
+      background-color: var(--vj-yellow);
+      border-radius: 2px;
+    }
+    footer a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    footer a:hover {
+      color: var(--vj-yellow);
+      padding-left: 4px;
+    }
+    .footer-divider {
+      border-color: rgba(255, 255, 255, 0.2);
+      margin: 2rem 0 1.5rem;
+    }
+    .footer-bottom {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .social-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      margin-right: 8px;
+      transition: all 0.2s ease;
+    }
+    .social-icon:hover {
+      background: var(--vj-yellow);
+      color: #1a1a1a;
+      transform: translateY(-2px);
+    }
+
+    /* Booking Modal Customization */
+    .modal-content {
+      border-radius: 16px;
+      border: none;
+      overflow: hidden;
+    }
+    .modal-header {
+      background-color: var(--vj-red);
+      color: #ffffff;
+      border-bottom: none;
+      padding: 1.25rem 1.5rem;
+    }
+    .modal-header .btn-close {
+      filter: brightness(0) invert(1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Info Bar -->
+  <div class="top-bar d-none d-md-block">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <span class="me-3"><i class="bi bi-telephone-fill text-warning me-1"></i> Hotline: <strong>1900 1886</strong></span>
+          <span><i class="bi bi-envelope-fill text-warning me-1"></i> Email: <strong>19001886@vietjetair.com</strong></span>
+        </div>
+        <div>
+          <span class="me-3"><i class="bi bi-clock-fill text-warning me-1"></i> Phục vụ 24/7</span>
+          <a href="#promotions" class="badge text-bg-warning text-dark text-decoration-none">Ưu đãi hôm nay</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navbar -->
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#home">
+          <img src="images/logo.png" alt="Vietjet Air Logo">
+        </a>
+
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#vietjetNavbar" aria-controls="vietjetNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Menu -->
+        <div class="collapse navbar-collapse" id="vietjetNavbar">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home"><i class="bi bi-house-door me-1"></i> Trang chủ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#flights"><i class="bi bi-airplane me-1"></i> Chuyến bay</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#promotions"><i class="bi bi-tag me-1"></i> Khuyến mãi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact"><i class="bi bi-telephone me-1"></i> Liên hệ</a>
+            </li>
+          </ul>
+          <div class="d-flex gap-2">
+            <button class="btn btn-vj-primary" onclick="openBookingModal('Chuyến bay tự chọn', 'TP. Hồ Chí Minh (SGN)', 'Hà Nội (HAN)', '4.000.000 VND')">
+              <i class="bi bi-ticket-perforated-fill"></i> Đặt vé ngay
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="container">
+        <div class="row align-items-center gy-4">
+          <!-- Cột bên trái: Nội dung giới thiệu & Nút CTA -->
+          <div class="col-lg-6">
+            <div class="pe-lg-3">
+              <span class="badge px-3 py-2 rounded-pill mb-3" style="background-color: rgba(238, 29, 35, 0.1); color: var(--vj-red); font-weight: 700;">
+                <i class="bi bi-stars text-warning me-1"></i> Hãng hàng không thế hệ mới
+              </span>
+              <h1 class="hero-title">
+                Bay khắp chốn, đón niềm vui cùng <span class="text-vj-red">Vietjet</span>
+              </h1>
+              <p class="hero-desc">
+                Trải nghiệm những chuyến bay an toàn, tiện nghi cùng đội tàu bay hiện đại và dịch vụ thân thiện. Đặt vé hôm nay để nhận ngay hàng ngàn ưu đãi hấp dẫn trên mọi hành trình nội địa và quốc tế.
+              </p>
+              <div class="d-flex flex-wrap gap-3">
+                <button class="btn btn-vj-primary btn-lg" onclick="openBookingModal('Chuyến bay theo yêu cầu', 'TP. Hồ Chí Minh (SGN)', 'Hà Nội (HAN)', '4.000.000 VND')">
+                  <i class="bi bi-cursor-fill"></i> Đặt vé ngay
+                </button>
+                <a href="#flights" class="btn btn-vj-outline btn-lg">
+                  <i class="bi bi-compass"></i> Xem chuyến bay
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cột bên phải: Hình ảnh máy bay Vietjet -->
+          <div class="col-lg-6">
+            <div class="hero-img-container">
+              <img src="images/hero-plane.jpg" alt="Máy bay Vietjet Air" class="hero-plane-img">
+              <div class="hero-badge d-none d-sm-flex">
+                <div class="hero-badge-icon">
+                  <i class="bi bi-shield-check"></i>
+                </div>
+                <div>
+                  <h6 class="mb-0 fw-bold">100% Chuyến bay an toàn</h6>
+                  <small class="text-muted">Đội tàu bay mới & hiện đại nhất</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Thanh tìm kiếm chuyến bay nhanh (Quick Search) -->
+        <div class="search-panel mt-5">
+          <form id="quickSearchForm" onsubmit="handleQuickSearch(event)">
+            <div class="row g-3 align-items-end">
+              <div class="col-md-3">
+                <label class="form-label"><i class="bi bi-geo-alt-fill text-danger me-1"></i> Điểm khởi hành</label>
+                <select class="form-select" id="originSelect" required>
+                  <option value="SGN" selected>TP. Hồ Chí Minh (SGN)</option>
+                  <option value="HAN">Hà Nội (HAN)</option>
+                  <option value="DAD">Đà Nẵng (DAD)</option>
+                  <option value="PQC">Phú Quốc (PQC)</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label"><i class="bi bi-geo-fill text-danger me-1"></i> Điểm đến</label>
+                <select class="form-select" id="destSelect" required>
+                  <option value="HAN" selected>Hà Nội (HAN)</option>
+                  <option value="SGN">TP. Hồ Chí Minh (SGN)</option>
+                  <option value="DAD">Đà Nẵng (DAD)</option>
+                  <option value="PQC">Phú Quốc (PQC)</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label"><i class="bi bi-calendar-event-fill text-danger me-1"></i> Ngày bay</label>
+                <input type="date" class="form-control" id="flightDate" required>
+              </div>
+              <div class="col-md-3">
+                <button type="submit" class="btn btn-vj-primary w-100 justify-content-center py-2">
+                  <i class="bi bi-search"></i> Tìm chuyến bay
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section: Danh sách chuyến bay -->
+    <section class="py-5" id="flights">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="section-subtitle">Chuyến bay nổi bật</div>
+          <h2 class="section-main-title">Khám Phá Các Hành Trình Hấp Dẫn</h2>
+          <p class="section-desc">Giá vé tốt nhất cho các chuyến bay một chiều phổ biến cùng Vietjet Air. Đặt sớm để có giá vé ưu đãi nhất!</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Chuyến bay 1: TPHCM - Hà Nội -->
+          <div class="col-md-6 col-lg-4">
+            <div class="flight-card">
+              <div class="flight-card-header">
+                <span class="flight-badge"><i class="bi bi-arrow-right me-1"></i>Một chiều</span>
+                <span class="badge text-bg-light border text-muted">VJ-128</span>
+              </div>
+              <div class="flight-card-body">
+                <div class="route-visual">
+                  <div class="route-point">
+                    <div class="route-code">SGN</div>
+                    <div class="route-city">TP. Hồ Chí Minh</div>
+                  </div>
+                  <div class="route-path">
+                    <i class="bi bi-airplane-fill route-plane-icon"></i>
+                    <div class="route-line"></div>
+                    <small class="text-muted" style="font-size: 0.75rem;">2h 10m</small>
+                  </div>
+                  <div class="route-point">
+                    <div class="route-code">HAN</div>
+                    <div class="route-city">Hà Nội</div>
+                  </div>
+                </div>
+
+                <div class="flight-info-meta">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted"><i class="bi bi-calendar3 me-1"></i>Khởi hành:</span>
+                    <strong class="text-dark">Hàng ngày</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span class="text-muted"><i class="bi bi-luggage-fill me-1"></i>Hành lý:</span>
+                    <strong class="text-dark">7kg xách tay</strong>
+                  </div>
+                </div>
+
+                <div class="flight-price-box">
+                  <div>
+                    <div class="price-label">Giá chỉ từ</div>
+                    <div class="price-value">4.000.000 <span class="price-unit">VND</span></div>
+                  </div>
+                  <button class="btn btn-vj-primary btn-sm px-3" onclick="openBookingModal('TPHCM - Hà Nội', 'TP. Hồ Chí Minh (SGN)', 'Hà Nội (HAN)', '4.000.000 VND')">
+                    Chọn vé
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chuyến bay 2: TPHCM - Đà Nẵng -->
+          <div class="col-md-6 col-lg-4">
+            <div class="flight-card">
+              <div class="flight-card-header">
+                <span class="flight-badge promo"><i class="bi bi-fire me-1"></i>Giá Siêu Tốt</span>
+                <span class="badge text-bg-light border text-muted">VJ-622</span>
+              </div>
+              <div class="flight-card-body">
+                <div class="route-visual">
+                  <div class="route-point">
+                    <div class="route-code">SGN</div>
+                    <div class="route-city">TP. Hồ Chí Minh</div>
+                  </div>
+                  <div class="route-path">
+                    <i class="bi bi-airplane-fill route-plane-icon"></i>
+                    <div class="route-line"></div>
+                    <small class="text-muted" style="font-size: 0.75rem;">1h 20m</small>
+                  </div>
+                  <div class="route-point">
+                    <div class="route-code">DAD</div>
+                    <div class="route-city">Đà Nẵng</div>
+                  </div>
+                </div>
+
+                <div class="flight-info-meta">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted"><i class="bi bi-calendar3 me-1"></i>Khởi hành:</span>
+                    <strong class="text-dark">Hàng ngày</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span class="text-muted"><i class="bi bi-luggage-fill me-1"></i>Hành lý:</span>
+                    <strong class="text-dark">7kg xách tay</strong>
+                  </div>
+                </div>
+
+                <div class="flight-price-box">
+                  <div>
+                    <div class="price-label">Giá chỉ từ</div>
+                    <div class="price-value">1.500.000 <span class="price-unit">VND</span></div>
+                  </div>
+                  <button class="btn btn-vj-primary btn-sm px-3" onclick="openBookingModal('TPHCM - Đà Nẵng', 'TP. Hồ Chí Minh (SGN)', 'Đà Nẵng (DAD)', '1.500.000 VND')">
+                    Chọn vé
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chuyến bay 3: Hà Nội - Phú Quốc -->
+          <div class="col-md-6 col-lg-4">
+            <div class="flight-card">
+              <div class="flight-card-header">
+                <span class="flight-badge"><i class="bi bi-sun me-1"></i>Du lịch biển</span>
+                <span class="badge text-bg-light border text-muted">VJ-453</span>
+              </div>
+              <div class="flight-card-body">
+                <div class="route-visual">
+                  <div class="route-point">
+                    <div class="route-code">HAN</div>
+                    <div class="route-city">Hà Nội</div>
+                  </div>
+                  <div class="route-path">
+                    <i class="bi bi-airplane-fill route-plane-icon"></i>
+                    <div class="route-line"></div>
+                    <small class="text-muted" style="font-size: 0.75rem;">2h 15m</small>
+                  </div>
+                  <div class="route-point">
+                    <div class="route-code">PQC</div>
+                    <div class="route-city">Phú Quốc</div>
+                  </div>
+                </div>
+
+                <div class="flight-info-meta">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted"><i class="bi bi-calendar3 me-1"></i>Khởi hành:</span>
+                    <strong class="text-dark">Hàng ngày</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span class="text-muted"><i class="bi bi-luggage-fill me-1"></i>Hành lý:</span>
+                    <strong class="text-dark">7kg xách tay</strong>
+                  </div>
+                </div>
+
+                <div class="flight-price-box">
+                  <div>
+                    <div class="price-label">Giá chỉ từ</div>
+                    <div class="price-value">2.200.000 <span class="price-unit">VND</span></div>
+                  </div>
+                  <button class="btn btn-vj-primary btn-sm px-3" onclick="openBookingModal('Hà Nội - Phú Quốc', 'Hà Nội (HAN)', 'Phú Quốc (PQC)', '2.200.000 VND')">
+                    Chọn vé
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Promotions Section -->
+    <section class="py-4" id="promotions">
+      <div class="container">
+        <div class="promo-banner">
+          <div class="row align-items-center">
+            <div class="col-lg-8">
+              <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold mb-3">Ưu đãi độc quyền 2026</span>
+              <h2 class="display-6 fw-bold mb-3">Săn Vé Máy Bay 0 Đồng Vào Khung Giờ Vàng!</h2>
+              <p class="lead mb-4" style="opacity: 0.95;">
+                Vietjet dành tặng hàng triệu vé siêu tiết kiệm áp dụng cho toàn mạng bay nội địa. Đặt vé ngay hôm nay để thỏa sức vi vu khắp mọi miền đất nước!
+              </p>
+              <button class="btn btn-light btn-lg fw-bold text-danger px-4" onclick="openBookingModal('Ưu đãi Khung Giờ Vàng 0Đ', 'TP. Hồ Chí Minh (SGN)', 'Đà Nẵng (DAD)', '0 VND (+ thuế phí)')">
+                <i class="bi bi-gift-fill me-1"></i> Săn vé ngay
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Vietjet Air -->
+    <section class="py-5">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="section-subtitle">Vì sao chọn Vietjet</div>
+          <h2 class="section-main-title">Trải Nghiệm Bay Khác Biệt</h2>
+        </div>
+        <div class="row g-4 text-center">
+          <div class="col-md-4">
+            <div class="card h-100 border-0 p-4 shadow-sm" style="border-radius: 16px;">
+              <div class="benefit-icon-box mx-auto">
+                <i class="bi bi-tag-fill"></i>
+              </div>
+              <h5 class="fw-bold mb-2">Giá Vé Tiết Kiệm</h5>
+              <p class="text-muted mb-0">Chính sách giá vé linh hoạt, phù hợp với mọi nhu cầu di chuyển của hành khách.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 border-0 p-4 shadow-sm" style="border-radius: 16px;">
+              <div class="benefit-icon-box mx-auto">
+                <i class="bi bi-clock-history"></i>
+              </div>
+              <h5 class="fw-bold mb-2">Chuyến Bay Đúng Giờ</h5>
+              <p class="text-muted mb-0">Tối ưu hóa quy trình vận hành đảm bảo sự chuẩn xác và đúng giờ cho từng chuyến bay.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 border-0 p-4 shadow-sm" style="border-radius: 16px;">
+              <div class="benefit-icon-box mx-auto">
+                <i class="bi bi-emoji-smile-fill"></i>
+              </div>
+              <h5 class="fw-bold mb-2">Dịch Vụ Chu Đáo</h5>
+              <p class="text-muted mb-0">Đội ngũ tiếp viên trẻ trung, năng động và tận tâm luôn đồng hành cùng bạn suốt chuyến đi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="row gy-4">
+        <!-- Cột 1: Giới thiệu Vietjet -->
+        <div class="col-lg-4 col-md-6">
+          <h5 class="text-white">Vietjet Air</h5>
+          <p class="text-white-50">
+            Hãng hàng không thế hệ mới, luôn tiên phong mang lại cơ hội bay tiết kiệm và thú vị cho mọi khách hàng trên toàn cầu.
+          </p>
+          <div class="mt-3">
+            <a href="#" class="social-icon" title="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon" title="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon" title="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" class="social-icon" title="TikTok"><i class="bi bi-tiktok"></i></a>
+          </div>
+        </div>
+
+        <!-- Cột 2: Đường dẫn nhanh -->
+        <div class="col-lg-2 col-md-6">
+          <h5 class="text-white">Liên kết</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#home">Trang chủ</a></li>
+            <li class="mb-2"><a href="#flights">Chuyến bay</a></li>
+            <li class="mb-2"><a href="#promotions">Khuyến mãi</a></li>
+            <li class="mb-2"><a href="#contact">Liên hệ</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 3: Hỗ trợ khách hàng -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-white">Hỗ trợ khách hàng</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#flights">Hướng dẫn đặt vé</a></li>
+            <li class="mb-2"><a href="#flights">Quy định hành lý</a></li>
+            <li class="mb-2"><a href="#flights">Điều kiện vé</a></li>
+            <li class="mb-2"><a href="#contact">Câu hỏi thường gặp</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 4: Thông tin liên hệ -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-white">Thông tin liên hệ</h5>
+          <p class="mb-2">
+            <i class="bi bi-telephone-inbound-fill text-warning me-2"></i>
+            Hotline: <strong>1900 1886</strong>
+          </p>
+          <p class="mb-2">
+            <i class="bi bi-envelope-at-fill text-warning me-2"></i>
+            Email: <strong>19001886@vietjetair.com</strong>
+          </p>
+          <p class="mb-0">
+            <i class="bi bi-geo-alt-fill text-warning me-2"></i>
+            Trụ sở: 302 Kim Mã, Ba Đình, Hà Nội
+          </p>
+        </div>
+      </div>
+
+      <hr class="footer-divider">
+
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center footer-bottom">
+        <div>Copyright &copy; 2026 Vietjet Air. All rights reserved.</div>
+        <div class="mt-2 mt-md-0">
+          Landing Page mô phỏng - Phát triển theo tài liệu yêu cầu dự án.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal Đặt vé (Booking Modal) -->
+  <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="bookingModalLabel">
+            <i class="bi bi-ticket-detailed-fill me-2"></i>Đặt Vé Máy Bay
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="bookingForm" onsubmit="submitBooking(event)">
+          <div class="modal-body p-4">
+            <div class="alert alert-danger d-flex align-items-center mb-3" style="background-color: #fff2f2; border-color: #ffccd0; color: var(--vj-red);">
+              <i class="bi bi-info-circle-fill me-2 fs-5"></i>
+              <div>
+                Đường bay đã chọn: <strong id="modalRouteName">TPHCM - Hà Nội</strong><br>
+                Giá vé tham khảo: <strong id="modalPrice">4.000.000 VND</strong>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Họ và tên hành khách</label>
+              <input type="text" class="form-control" id="passengerName" placeholder="Nguyễn Văn A" required>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Số điện thoại</label>
+                <input type="tel" class="form-control" id="passengerPhone" placeholder="0901234567" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Email</label>
+                <input type="email" class="form-control" id="passengerEmail" placeholder="email@example.com" required>
+              </div>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Số lượng vé</label>
+                <select class="form-select" id="passengerCount">
+                  <option value="1" selected>1 Vé (Người lớn)</option>
+                  <option value="2">2 Vé</option>
+                  <option value="3">3 Vé</option>
+                  <option value="4">4+ Vé</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Ngày dự kiến</label>
+                <input type="date" class="form-control" id="modalFlightDate" required>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer bg-light">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            <button type="submit" class="btn btn-vj-primary px-4">
+              <i class="bi bi-check-circle-fill me-1"></i> Xác Nhận Đặt Vé
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Thông báo thành công -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
+    <div id="bookingToast" class="toast align-items-center text-bg-success border-0 shadow" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body fs-6 py-3">
+          <i class="bi bi-check2-circle me-2 fs-5"></i>
+          <span id="toastMessage">Đặt vé thành công! Vietjet Air sẽ liên hệ quý khách sớm nhất.</span>
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JavaScript tương tác (Vanilla JS) -->
+  <script>
+    // Khởi tạo ngày bay mặc định là ngày mai
+    document.addEventListener('DOMContentLoaded', function() {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const dateStr = tomorrow.toISOString().split('T')[0];
+
+      const flightDateInput = document.getElementById('flightDate');
+      const modalFlightDateInput = document.getElementById('modalFlightDate');
+
+      if (flightDateInput) flightDateInput.value = dateStr;
+      if (modalFlightDateInput) modalFlightDateInput.value = dateStr;
+    });
+
+    // Mở Modal đặt vé với dữ liệu hành trình tương ứng
+    function openBookingModal(routeName, origin, destination, price) {
+      document.getElementById('modalRouteName').textContent = routeName + ' (' + origin + ' -> ' + destination + ')';
+      document.getElementById('modalPrice').textContent = price;
+
+      const bookingModal = new bootstrap.Modal(document.getElementById('bookingModal'));
+      bookingModal.show();
+    }
+
+    // Xử lý gửi Form Đặt Vé
+    function submitBooking(event) {
+      event.preventDefault();
+      const passengerName = document.getElementById('passengerName').value.trim();
+      const routeName = document.getElementById('modalRouteName').textContent;
+
+      // Đóng modal
+      const modalEl = document.getElementById('bookingModal');
+      const modalInstance = bootstrap.Modal.getInstance(modalEl);
+      if (modalInstance) {
+        modalInstance.hide();
+      }
+
+      // Reset form
+      document.getElementById('bookingForm').reset();
+
+      // Hiển thị Toast thông báo
+      const toastEl = document.getElementById('bookingToast');
+      const toastMsg = document.getElementById('toastMessage');
+      toastMsg.innerHTML = `Cảm ơn quý khách <strong>${passengerName}</strong>! Yêu cầu đặt vé cho hành trình <strong>${routeName}</strong> đã được ghi nhận.`;
+      
+      const toast = new bootstrap.Toast(toastEl, { delay: 6000 });
+      toast.show();
+    }
+
+    // Xử lý tìm kiếm nhanh
+    function handleQuickSearch(event) {
+      event.preventDefault();
+      const origin = document.getElementById('originSelect');
+      const dest = document.getElementById('destSelect');
+      const originText = origin.options[origin.selectedIndex].text;
+      const destText = dest.options[dest.selectedIndex].text;
+
+      if (origin.value === dest.value) {
+        alert('Điểm khởi hành và điểm đến không thể trùng nhau. Vui lòng chọn lại!');
+        return;
+      }
+
+      openBookingModal(originText + ' - ' + destText, originText, destText, 'Giá ưu đãi tốt nhất');
+    }
+  </script>
+</body>
+</html>
